@@ -1,0 +1,224 @@
+{
+  "id": "lesson00",
+  "title": "Lesson 00: The Viewport",
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "One window. That's it.",
+      "body": "This is the 3D Viewport, the room where everything in Blender happens. Everything else is hidden for now. You'll earn it back, piece by piece.\n\nPress F1 over anything, anytime, and it explains itself.",
+      "setup": [
+        "reset_cube",
+        "select_cube"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "orbit",
+      "title": "Orbit",
+      "body": "Hold the middle mouse button and drag. You're circling the cube like a moon.",
+      "hint": "Middle mouse means pressing the scroll wheel down like a button. No wheel? Drag the colored axis ball in the top-right corner.",
+      "check": {
+        "type": "view_rotated",
+        "degrees": 25
+      }
+    },
+    {
+      "id": "zoom",
+      "title": "Zoom",
+      "body": "Roll the mouse wheel over the viewport (not over this card). Closer. Farther. Go nuts.",
+      "hint": "Or drag the magnifying glass icon in the top-right corner up and down.",
+      "check": {
+        "type": "view_zoomed",
+        "factor": 1.4
+      }
+    },
+    {
+      "id": "pan",
+      "title": "Pan",
+      "body": "Hold Shift and drag with the middle mouse button. The view slides sideways like a camera on rails.",
+      "hint": "Or drag the little hand icon in the top-right corner.",
+      "check": {
+        "type": "view_panned",
+        "distance": 0.6
+      }
+    },
+    {
+      "id": "front",
+      "title": "Snap to front",
+      "body": "Press 1 on the number pad. Boom: front view, flat and orthographic, like a blueprint.",
+      "hint": "No numpad? Click the green circle marked -Y on the axis ball (top-right).",
+      "check": {
+        "type": "view_axis",
+        "direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "select",
+      "title": "Pick it",
+      "body": "Left-click the cube. It glows orange. Orange means 'I'm the one you're talking to.'",
+      "hint": "Click anywhere on the cube's faces, not its outline.",
+      "setup": [
+        "deselect_all"
+      ],
+      "check": {
+        "type": "selected",
+        "object": "Cube"
+      },
+      "praise": "Orange! It's listening."
+    },
+    {
+      "id": "frame",
+      "title": "Find it again",
+      "body": "We just shoved the view off to the side. Press the period key on the number pad and Blender swoops back to whatever is selected.",
+      "hint": "No numpad? Press the ` key (left of 1) and choose Frame Selected from the pie.",
+      "setup": [
+        "select_cube",
+        {
+          "do": "offset_view",
+          "by": [
+            5,
+            3,
+            0
+          ]
+        }
+      ],
+      "check": {
+        "type": "view_framed",
+        "object": "Cube",
+        "tolerance": 0.4
+      }
+    },
+    {
+      "id": "grab",
+      "title": "Grab it",
+      "body": "Press G, wiggle the mouse, then left-click to drop it. G is for Grab. Your new best friend.",
+      "hint": "Your mouse must be over the viewport when you press G.",
+      "setup": [
+        "reset_cube",
+        "select_cube"
+      ],
+      "check": {
+        "type": "moved",
+        "object": "Cube",
+        "distance": 0.3
+      }
+    },
+    {
+      "id": "grab-x",
+      "title": "On rails",
+      "body": "Press G, then X. The cube is now locked to the red X axis. Move it, click. Red is X, green is Y, blue is Z. Forever.",
+      "hint": "G first, then X, then move the mouse. Order matters.",
+      "setup": [
+        "reset_cube",
+        "select_cube"
+      ],
+      "pulse": {
+        "object": "Cube",
+        "axis_line": "X"
+      },
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_translate",
+        "props": {
+          "constraint_axis": [
+            true,
+            false,
+            false
+          ]
+        }
+      }
+    },
+    {
+      "id": "grab-x-typed",
+      "title": "Exactly 2 meters",
+      "body": "G, then X, then type 2 and press Enter. No mouse needed. Precision mode activated.",
+      "hint": "Type the 2 while the cube is still moving, then Enter.",
+      "setup": [
+        "reset_cube",
+        "select_cube"
+      ],
+      "pulse": {
+        "object": "Cube",
+        "axis_line": "X"
+      },
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_translate",
+        "props": {
+          "constraint_axis": [
+            true,
+            false,
+            false
+          ],
+          "value": [
+            2,
+            0,
+            0
+          ]
+        }
+      },
+      "praise": "Two meters. Not one millimeter more."
+    },
+    {
+      "id": "rotate",
+      "title": "Spin",
+      "body": "Press R to rotate. Feeling fancy? Try R, Z, 45, Enter for a crisp 45 degree turn.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_rotate"
+      }
+    },
+    {
+      "id": "scale",
+      "title": "Grow",
+      "body": "Press S to scale. Pull the mouse away from the cube to grow it, push toward it to shrink. Click to confirm.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_resize"
+      }
+    },
+    {
+      "id": "undo",
+      "title": "Take it back",
+      "body": "Made a mess? Ctrl+Z undoes. Undo until your cube is back to its normal size.",
+      "hint": "Ctrl+Z, maybe once, maybe twice. Ctrl+Shift+Z redoes if you overshoot.",
+      "check": {
+        "type": "scale_is",
+        "object": "Cube",
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "tolerance": 0.01
+      },
+      "praise": "Time travel unlocked."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 00: cleared",
+      "body": "You can orbit, zoom, pan, snap views, select, grab, rotate, scale, and undo. That's the whole foundation.\n\nReward: the header and toolbar just appeared. Hover anything up there and press F1. Scroll on for Lesson 01: Seeing.",
+      "unlock": [
+        "header",
+        "toolbar"
+      ],
+      "check": {
+        "type": "read"
+      }
+    }
+  ],
+  "next": "lesson01",
+  "unlocked": []
+}

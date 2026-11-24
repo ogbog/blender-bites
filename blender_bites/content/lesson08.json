@@ -1,0 +1,141 @@
+{
+  "id": "lesson08",
+  "title": "Lesson 08: Materials",
+  "next": "lesson09",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Paint and polish",
+      "body": "A material decides how a surface handles light: its color, whether it's metal, how rough or glossy it is.",
+      "setup": [
+        "fresh_cube",
+        "reset_view",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "preview",
+      "title": "Look properly",
+      "body": "Z, then Material Preview, so you can actually see materials.",
+      "check": {
+        "type": "prop",
+        "root": "space",
+        "path": "shading.type",
+        "op": "eq",
+        "value": "MATERIAL"
+      }
+    },
+    {
+      "id": "new",
+      "title": "A new material",
+      "body": "In Properties, click the red checkered ball tab (Material), then click New.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "object",
+        "path": "active_material",
+        "op": "present",
+        "object": "Cube"
+      },
+      "hint": "The material tab is near the bottom of the Properties tab column.",
+      "praise": "Blank canvas acquired."
+    },
+    {
+      "id": "name",
+      "title": "Name it",
+      "body": "Double-click the material's name at the top of the tab and call it Clay. Materials get reused, so names matter.",
+      "check": {
+        "type": "object",
+        "path": "active_material.name",
+        "op": "changed",
+        "object": "Cube"
+      }
+    },
+    {
+      "id": "color",
+      "title": "Pick a color",
+      "body": "Click the Base Color swatch and pick anything bold.",
+      "check": {
+        "type": "object",
+        "path": "active_material.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value",
+        "op": "changed",
+        "object": "Cube"
+      },
+      "hint": "The Base Color bar is near the top of the Surface panel. Click it for the color wheel.",
+      "praise": "Gorgeous."
+    },
+    {
+      "id": "metal",
+      "title": "Make it metal",
+      "body": "Drag Metallic all the way to 1.",
+      "check": {
+        "type": "object",
+        "path": "active_material.node_tree.nodes['Principled BSDF'].inputs['Metallic'].default_value",
+        "op": "ge",
+        "value": 0.9,
+        "object": "Cube"
+      }
+    },
+    {
+      "id": "gloss",
+      "title": "Polish it",
+      "body": "Set Roughness down to 0.1. Rough is matte, smooth is a mirror.",
+      "check": {
+        "type": "object",
+        "path": "active_material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value",
+        "op": "le",
+        "value": 0.15,
+        "object": "Cube"
+      },
+      "praise": "Chrome dome."
+    },
+    {
+      "id": "slot",
+      "title": "Two materials, one object",
+      "body": "Tab into Edit Mode, press 3, click one face. In the Material tab press the + beside the slot list, click New, then click Assign.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "max_mat",
+        "op": "ge",
+        "value": 1
+      },
+      "hint": "Three steps: + adds a slot, New fills it, Assign paints the selected faces with it.",
+      "hint_after": 25,
+      "praise": "Two-tone."
+    },
+    {
+      "id": "tab-out",
+      "title": "Back out",
+      "body": "Tab back to Object Mode.",
+      "check": {
+        "type": "mode",
+        "value": "OBJECT"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 08: cleared",
+      "body": "New materials, base color, metal, roughness, and multiple materials on one mesh.\n\nReward: the Shader Editor just slid in at the bottom. It's the same material, drawn as a node graph. Scroll on for Lesson 09.",
+      "unlock": [
+        "shader"
+      ],
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

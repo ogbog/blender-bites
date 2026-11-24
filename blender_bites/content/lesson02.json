@@ -1,0 +1,149 @@
+{
+  "id": "lesson02",
+  "title": "Lesson 02: Making",
+  "next": "lesson03",
+  "unlocked": [
+    "header",
+    "toolbar"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "The Add menu",
+      "body": "Shift+A is yours now. It opens the Add menu, the shop where every new object comes from. New things appear at the 3D cursor: that red and white ring.",
+      "setup": [
+        "reset_cube",
+        "select_cube",
+        "reset_view",
+        "cursor_reset",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "cursor",
+      "title": "Move the drop point",
+      "body": "Hold Shift and right-click somewhere on the grid. The 3D cursor jumps there. That's where your next object will land.",
+      "hint": "Shift+Right-click on the floor grid, away from the cube.",
+      "check": {
+        "type": "cursor_moved",
+        "distance": 1.0
+      },
+      "praise": "Drop zone marked."
+    },
+    {
+      "id": "sphere",
+      "title": "Summon a sphere",
+      "body": "Hover the viewport, press Shift+A, then Mesh, then UV Sphere.",
+      "hint": "Shift+A opens the menu right under your mouse. Mesh is near the top.",
+      "check": {
+        "type": "added",
+        "prefix": "Sphere",
+        "object_type": "MESH"
+      },
+      "praise": "Something from nothing."
+    },
+    {
+      "id": "redo",
+      "title": "Change your mind",
+      "body": "See the little panel in the bottom-left corner? It only exists right after you add or change something. Click it open and push Segments up to 64. Watch the sphere get smoother.",
+      "hint": "Bottom-left corner: a collapsed panel named UV Sphere. Click its title, then drag or type in Segments.",
+      "unlock": [
+        "hud"
+      ],
+      "check": {
+        "type": "operator",
+        "idname": "MESH_OT_primitive_uv_sphere_add",
+        "props": {
+          "segments": {
+            "op": "ge",
+            "value": 64
+          }
+        }
+      },
+      "praise": "Smooth operator."
+    },
+    {
+      "id": "delete",
+      "title": "Make it vanish",
+      "body": "With the sphere selected, press X, then click Delete. Gone.",
+      "hint": "X pops a tiny confirm menu. The Delete key skips it.",
+      "check": {
+        "type": "gone",
+        "prefix": "Sphere"
+      },
+      "praise": "Poof."
+    },
+    {
+      "id": "duplicate",
+      "title": "Copy that",
+      "body": "Press Shift+D to duplicate the cube, move the mouse, and click to drop the copy. Shift+D copies and grabs in one move.",
+      "hint": "The cube needs to be orange (selected). Then Shift+D, move, click.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "added",
+        "prefix": "Cube",
+        "object_type": "MESH"
+      },
+      "praise": "Two cubes. Twice the power."
+    },
+    {
+      "id": "monkey",
+      "title": "Meet Suzanne",
+      "body": "Shift+A, Mesh, Monkey. This is Suzanne, Blender's monkey mascot and favorite test subject.",
+      "check": {
+        "type": "added",
+        "prefix": "Suzanne",
+        "object_type": "MESH"
+      },
+      "praise": "Say hi, Suzanne."
+    },
+    {
+      "id": "stack",
+      "title": "Monkey on a box",
+      "body": "Put Suzanne on top of the original cube. G moves her. G then Z locks the move to up and down. Front view (numpad 1) makes it easy to judge.",
+      "hint": "Slide her over the cube first (G, click), then G, Z to lift her. Numpad 1 to check from the front.",
+      "hint_after": 25,
+      "setup": [
+        "ensure_suzanne",
+        {
+          "do": "place",
+          "prefix": "Suzanne",
+          "location": [
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "do": "select",
+          "prefix": "Suzanne"
+        }
+      ],
+      "check": {
+        "type": "stacked",
+        "top": "Suzanne",
+        "base": "Cube"
+      },
+      "praise": "A monument. Museum quality."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 02: cleared",
+      "body": "You can place the cursor, add, tweak, delete, duplicate, and stack. You build things now.\n\nReward: the Outliner just slid in on the right. It lists every object in your scene. Scroll on for Lesson 03: Organizing.",
+      "unlock": [
+        "outliner"
+      ],
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

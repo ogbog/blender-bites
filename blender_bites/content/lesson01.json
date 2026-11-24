@@ -1,0 +1,115 @@
+{
+  "id": "lesson01",
+  "title": "Lesson 01: Seeing",
+  "next": "lesson02",
+  "unlocked": ["header", "toolbar"],
+  "locked": [
+    {"type": "A", "shift": true, "say": "Shift+A unlocks in Lesson 02. Patience, grasshopper."}
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "New eyes",
+      "body": "Same cube, but now you have a header and a toolbar. This lesson is about HOW you look at your scene: as wire, as clay, as paint, as light.",
+      "setup": ["reset_cube", "select_cube", "reset_view", {"do": "shading", "value": "SOLID"}, "xray_off"],
+      "check": {"type": "read"}
+    },
+    {
+      "id": "wire",
+      "title": "See through it",
+      "body": "Hover the viewport and press Z. A pie menu blooms around your mouse. Flick toward Wireframe.",
+      "hint": "Press Z, slide the mouse toward the word Wireframe, and click.",
+      "check": {"type": "space", "path": "shading.type", "value": "WIREFRAME"},
+      "praise": "Pure skeleton. Every edge, no skin."
+    },
+    {
+      "id": "solid",
+      "title": "Back to clay",
+      "body": "Z again, and this time pick Solid. Solid is home base: fast, clear, no surprises.",
+      "check": {"type": "space", "path": "shading.type", "value": "SOLID"}
+    },
+    {
+      "id": "xray",
+      "title": "X-ray vision",
+      "body": "Press Alt+Z. Solid turns ghostly, so you can see and click things hiding behind other things. Then press Alt+Z again to turn it off.",
+      "hint": "Alt+Z toggles it. On, then off.",
+      "setup": [{"do": "shading", "value": "SOLID"}, "xray_off"],
+      "check": {"type": "seq", "checks": [
+        {"type": "space", "path": "shading.show_xray", "value": true},
+        {"type": "space", "path": "shading.show_xray", "value": false}
+      ]},
+      "praise": "Superpower acquired. Superpower holstered."
+    },
+    {
+      "id": "material",
+      "title": "Paint preview",
+      "body": "Z, then Material Preview. Now you see colors and textures under a studio light. The first time takes a moment while Blender warms up its shaders.",
+      "check": {"type": "space", "path": "shading.type", "value": "MATERIAL"}
+    },
+    {
+      "id": "rendered",
+      "title": "The truth",
+      "body": "Look at the top-right of the header: four little spheres. They're the same four shading modes. Click the last one: Rendered. Real lights, real shadows.",
+      "hint": "Top-right corner of the header, the sphere farthest to the right.",
+      "check": {"type": "space", "path": "shading.type", "value": "RENDERED"},
+      "praise": "That's what the camera sees."
+    },
+    {
+      "id": "solid-header",
+      "title": "Home again",
+      "body": "Click the second sphere in the header to come back to Solid. Rendered is gorgeous but hungry.",
+      "check": {"type": "space", "path": "shading.type", "value": "SOLID"}
+    },
+    {
+      "id": "overlays",
+      "title": "Clean slate",
+      "body": "Shift+Alt+Z hides every helper drawing: the grid, the axis lines, the orange outline. Press it once to see your scene bare, then again to bring the helpers back.",
+      "hint": "Shift+Alt+Z, twice. Or click the button with two overlapping circles in the header.",
+      "check": {"type": "seq", "checks": [
+        {"type": "space", "path": "overlay.show_overlays", "value": false},
+        {"type": "space", "path": "overlay.show_overlays", "value": true}
+      ]}
+    },
+    {
+      "id": "toolbar",
+      "title": "T for tools",
+      "body": "The tall strip on the left is the toolbar. Press T to tuck it away, then T again to bring it back.",
+      "hint": "Mouse over the viewport, then T. Twice.",
+      "check": {"type": "seq", "checks": [
+        {"type": "space", "path": "show_region_toolbar", "value": false},
+        {"type": "space", "path": "show_region_toolbar", "value": true}
+      ]}
+    },
+    {
+      "id": "sidebar",
+      "title": "N for numbers",
+      "body": "Press N. A sidebar slides out on the right with tabs: Item, Tool, View. Item shows the exact numbers behind whatever is selected.",
+      "hint": "Mouse over the viewport, then N.",
+      "check": {"type": "space", "path": "show_region_ui", "value": true},
+      "praise": "Every object is secretly a spreadsheet."
+    },
+    {
+      "id": "type-x",
+      "title": "Type a position",
+      "body": "In the sidebar's Item tab, find Location X. Double-click it, type 1, press Enter. The cube jumps to exactly one meter.",
+      "hint": "Item tab, Transform, Location, the X field. Double-click to type into it.",
+      "setup": ["reset_cube", "select_cube"],
+      "check": {"type": "object", "object": "Cube", "path": "location.x", "op": "approx", "value": 1, "tol": 0.001},
+      "praise": "One meter. Typed, not guessed."
+    },
+    {
+      "id": "explain",
+      "title": "Ask Blender",
+      "body": "Hover the mouse over that same Location field and press F1. A plain-language card explains it. This works on almost anything: buttons, fields, even objects in the viewport.",
+      "hint": "Hover, don't click. Then F1.",
+      "check": {"type": "explained", "key": "Object.location"},
+      "praise": "You'll never be lost in here again."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 01: cleared",
+      "body": "Wireframe, Solid, Material Preview, Rendered. X-ray, overlays, toolbar, sidebar, typed numbers, and F1. You can SEE now.\n\nReward: Shift+A, the Add menu. Scroll on for Lesson 02: Making.",
+      "check": {"type": "read"}
+    }
+  ]
+}

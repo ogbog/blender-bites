@@ -1,0 +1,82 @@
+{
+  "id": "lesson12",
+  "title": "Lesson 12: Render",
+  "next": "lesson13",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Take the picture",
+      "body": "Rendering turns your scene into a finished image, seen through the camera.",
+      "setup": [
+        "object_mode",
+        "ensure_camera",
+        "perspective",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "engine",
+      "title": "Pick an engine",
+      "body": "Properties, the camera-back tab (Render). Change Render Engine to something else, then back if you like. EEVEE is fast, Cycles is physically accurate, Workbench is a quick preview.",
+      "check": {
+        "type": "prop",
+        "root": "render",
+        "path": "engine",
+        "op": "changed"
+      },
+      "praise": "Engines warm."
+    },
+    {
+      "id": "size",
+      "title": "Smaller for speed",
+      "body": "Open the printer tab (Output). Set the % under Resolution to 50. Half size renders four times faster while you experiment.",
+      "check": {
+        "type": "prop",
+        "root": "render",
+        "path": "resolution_percentage",
+        "op": "le",
+        "value": 50
+      },
+      "hint": "Output tab, Format, Resolution, the % field."
+    },
+    {
+      "id": "f12",
+      "title": "F12",
+      "body": "Hover the viewport and press F12. A render window opens and your picture appears.",
+      "check": {
+        "type": "rendered"
+      },
+      "hint": "No F12? Render menu at the top, Render Image.",
+      "hint_after": 20,
+      "praise": "Your first render!"
+    },
+    {
+      "id": "save",
+      "title": "Keep it",
+      "body": "In the render window, use Image, Save As to keep your picture. Then close the render window to come back here.",
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 12: cleared",
+      "body": "Engines, resolution, F12, and saving the image. You can make pictures now.\n\nReward: the Timeline is about to slide in. Scroll on for Lesson 13: time.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "id": "lesson07",
+  "title": "Lesson 07: Modifiers",
+  "next": "lesson08",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Recipes",
+      "body": "A modifier is a recipe Blender reruns every time anything changes. Edit the cube, and every copy, bevel, and wobble updates with it.",
+      "setup": [
+        "fresh_cube",
+        "reset_view",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "array",
+      "title": "Array",
+      "body": "Properties, wrench tab, Add Modifier, Generate, Array. Two cubes in a row.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "ARRAY"
+      },
+      "hint": "The wrench tab in the Properties editor. Add Modifier is the big button."
+    },
+    {
+      "id": "count",
+      "title": "More!",
+      "body": "Set the Array's Count to 5.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "ARRAY",
+        "props": {
+          "count": {
+            "op": "ge",
+            "value": 5
+          }
+        }
+      },
+      "praise": "A train of cubes."
+    },
+    {
+      "id": "gap",
+      "title": "Mind the gap",
+      "body": "Under Relative Offset, set Factor X to 1.5. Now there's space between them.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "ARRAY",
+        "props": {
+          "relative_offset_displace[0]": {
+            "op": "ge",
+            "value": 1.4
+          }
+        }
+      },
+      "hint": "Expand Relative Offset if it's folded. Factor X is the first field."
+    },
+    {
+      "id": "grid",
+      "title": "Into a grid",
+      "body": "Add a second Array. In its Relative Offset, set Factor X to 0 and Factor Y to 1.5. A train becomes a parking lot.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "ARRAY",
+        "props": {
+          "relative_offset_displace[1]": {
+            "op": "ge",
+            "value": 1.0
+          }
+        }
+      },
+      "hint": "A second Array modifier goes below the first. X to 0, Y to 1.5.",
+      "hint_after": 20,
+      "praise": "Twenty-five cubes, one real one."
+    },
+    {
+      "id": "wire",
+      "title": "Jungle gym",
+      "body": "Add Modifier, Generate, Wireframe. Every edge turns into a beam.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "WIREFRAME"
+      },
+      "praise": "Climbable."
+    },
+    {
+      "id": "edit-live",
+      "title": "Change the source",
+      "body": "Scale the cube with S. Watch the whole grid update. That's the power: one edit, everything follows.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_resize"
+      }
+    },
+    {
+      "id": "remove",
+      "title": "Remove one",
+      "body": "Delete the Wireframe modifier: hover its panel and press Ctrl+X, or use its dropdown and pick Delete.",
+      "check": {
+        "type": "not",
+        "check": {
+          "type": "modifier",
+          "object": "Cube",
+          "mod_type": "WIREFRAME"
+        }
+      }
+    },
+    {
+      "id": "apply",
+      "title": "Make it real",
+      "body": "Hover the first Array and press Ctrl+A to apply it (or dropdown, Apply). The recipe gets cooked into real geometry, for better or worse.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "verts",
+        "op": "ge",
+        "value": 40
+      },
+      "hint": "Apply the top Array. The mesh jumps from 8 vertices to 40.",
+      "praise": "Baked."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 07: cleared",
+      "body": "Array, Wireframe, stacking, live updates, deleting, applying. Non-destructive is a mindset: keep the recipe as long as you can.\n\nScroll on for Lesson 08: color and shine.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

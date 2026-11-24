@@ -1,0 +1,193 @@
+{
+  "id": "lesson04",
+  "title": "Lesson 04: Properties",
+  "next": "lesson05",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "locked": [
+    {
+      "type": "TAB",
+      "say": "Tab (Edit Mode) unlocks in Lesson 05. Hold that thought."
+    }
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "The control room",
+      "body": "The Properties editor is a filing cabinet. Each icon down its left edge opens a drawer: render, output, scene, world, object, modifiers, materials and more. Hover any icon and press F1.",
+      "setup": [
+        "fresh_cube",
+        "reset_view",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "object-tab",
+      "title": "The object drawer",
+      "body": "Click the orange square tab (Object). Under Transform, set Scale Z to 2. Same numbers as the N sidebar, bigger cabinet.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "object",
+        "path": "scale.z",
+        "op": "approx",
+        "value": 2,
+        "tol": 0.001,
+        "object": "Cube"
+      },
+      "hint": "Properties editor, orange square icon, Transform, Scale, the Z field. Double-click and type 2.",
+      "praise": "A tall cube. A box with ambition."
+    },
+    {
+      "id": "reset",
+      "title": "Undo one field",
+      "body": "Right-click the Scale Z field and choose Reset to Default Value. Right-click menus on fields are full of gems like this.",
+      "setup": [
+        {
+          "do": "set",
+          "object": "Cube",
+          "path": "scale",
+          "value": [
+            1,
+            1,
+            2
+          ]
+        }
+      ],
+      "check": {
+        "type": "object",
+        "path": "scale.z",
+        "op": "approx",
+        "value": 1,
+        "tol": 0.001,
+        "object": "Cube"
+      },
+      "hint": "Right-click directly on the Z number, then Reset to Default Value."
+    },
+    {
+      "id": "wrench",
+      "title": "The wrench",
+      "body": "Click the blue wrench tab: Modifiers. Modifiers change a shape without touching its real geometry. Recipes, not edits.",
+      "check": {
+        "type": "prop",
+        "root": "area:PROPERTIES",
+        "path": "spaces.active.context",
+        "op": "eq",
+        "value": "MODIFIER"
+      },
+      "hint": "Blue wrench icon, a little below the orange square."
+    },
+    {
+      "id": "subsurf",
+      "title": "Make it smooth",
+      "body": "Click Add Modifier, then Generate, then Subdivision Surface. The cube puffs into a soft blob.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "SUBSURF"
+      },
+      "praise": "Cube, meet pillow."
+    },
+    {
+      "id": "levels",
+      "title": "Smoother",
+      "body": "In the Subdivision panel, set Levels Viewport to 3. More levels, smoother surface, heavier mesh.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "SUBSURF",
+        "props": {
+          "levels": {
+            "op": "ge",
+            "value": 3
+          }
+        }
+      },
+      "hint": "Levels Viewport is the first number in the modifier panel."
+    },
+    {
+      "id": "shade-smooth",
+      "title": "Shade smooth",
+      "body": "Right-click the cube in the viewport and choose Shade Smooth. The faceted look melts away.",
+      "check": {
+        "type": "object",
+        "path": "data.polygons[0].use_smooth",
+        "op": "eq",
+        "value": true,
+        "object": "Cube"
+      },
+      "hint": "Right-click over the cube itself. Shade Smooth is near the top of the menu.",
+      "praise": "Buttery."
+    },
+    {
+      "id": "bevel",
+      "title": "Stack another",
+      "body": "Add Modifier, Generate, Bevel. Modifiers stack like pancakes: the top one runs first, then the next.",
+      "check": {
+        "type": "modifier",
+        "object": "Cube",
+        "mod_type": "BEVEL"
+      }
+    },
+    {
+      "id": "reorder",
+      "title": "Change the order",
+      "body": "Drag the Bevel panel above Subdivision by its handle (the dotted grip at the top-right of the panel), or use its dropdown arrow and pick Move to First. See how the edges tighten?",
+      "check": {
+        "type": "object",
+        "path": "modifiers[0].type",
+        "op": "eq",
+        "value": "BEVEL",
+        "object": "Cube"
+      },
+      "hint": "Each modifier header has a small dropdown arrow. Move to First lives there.",
+      "praise": "Order matters. Now you know."
+    },
+    {
+      "id": "toggle",
+      "title": "Peek without it",
+      "body": "Click the little monitor icon in the Subdivision header to switch it off in the viewport. Click again to switch it back on.",
+      "check": {
+        "type": "seq",
+        "checks": [
+          {
+            "type": "modifier",
+            "object": "Cube",
+            "mod_type": "SUBSURF",
+            "props": {
+              "show_viewport": false
+            }
+          },
+          {
+            "type": "modifier",
+            "object": "Cube",
+            "mod_type": "SUBSURF",
+            "props": {
+              "show_viewport": true
+            }
+          }
+        ]
+      },
+      "hint": "Each modifier header has toggle icons. The monitor is Show in Viewport."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 04: cleared",
+      "body": "Properties, Object transforms, field resets, modifiers, the stack, and Shade Smooth. You've seen inside the machine.\n\nReward: Tab is unlocked. Next lesson you climb inside the mesh itself.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

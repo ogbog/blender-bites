@@ -1,0 +1,64 @@
+{
+  "lessons": [
+    {
+      "id": "lesson00",
+      "title": "Lesson 00: The Viewport"
+    },
+    {
+      "id": "lesson01",
+      "title": "Lesson 01: Seeing"
+    },
+    {
+      "id": "lesson02",
+      "title": "Lesson 02: Making"
+    },
+    {
+      "id": "lesson03",
+      "title": "Lesson 03: Organizing"
+    },
+    {
+      "id": "lesson04",
+      "title": "Lesson 04: Properties"
+    },
+    {
+      "id": "lesson05",
+      "title": "Lesson 05: Edit Mode"
+    },
+    {
+      "id": "lesson06",
+      "title": "Lesson 06: Modeling"
+    },
+    {
+      "id": "lesson07",
+      "title": "Lesson 07: Modifiers"
+    },
+    {
+      "id": "lesson08",
+      "title": "Lesson 08: Materials"
+    },
+    {
+      "id": "lesson09",
+      "title": "Lesson 09: Shader Nodes"
+    },
+    {
+      "id": "lesson10",
+      "title": "Lesson 10: Light"
+    },
+    {
+      "id": "lesson11",
+      "title": "Lesson 11: Camera"
+    },
+    {
+      "id": "lesson12",
+      "title": "Lesson 12: Render"
+    },
+    {
+      "id": "lesson13",
+      "title": "Lesson 13: Animation"
+    },
+    {
+      "id": "lesson14",
+      "title": "Lesson 14: Graduation"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "id": "lesson06",
+  "title": "Lesson 06: Modeling",
+  "next": "lesson07",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "The big six",
+      "body": "Six tools build most of the 3D models you've ever seen: extrude, inset, loop cut, bevel, merge, delete. Let's grow a tower.",
+      "setup": [
+        "fresh_cube",
+        "edit_mode",
+        {
+          "do": "select_mode",
+          "value": [
+            false,
+            false,
+            true
+          ]
+        },
+        "mesh_deselect",
+        "reset_view",
+        "xray_off"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "extrude",
+      "title": "Extrude",
+      "body": "Face mode (3). Click the top face, press E, pull the mouse up, click. Brand new geometry grows out of the face.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 4,
+        "rel": true
+      },
+      "hint": "Top face selected, then E. Move the mouse up, click to confirm.",
+      "praise": "It grows!"
+    },
+    {
+      "id": "extrude-2",
+      "title": "Again, exactly",
+      "body": "E again, then type 2 and press Enter. Two more meters of tower.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 4,
+        "rel": true
+      }
+    },
+    {
+      "id": "taper",
+      "title": "Taper",
+      "body": "With the top face still selected, press S, type 0.5, press Enter. Pointy.",
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_resize"
+      }
+    },
+    {
+      "id": "inset",
+      "title": "Inset",
+      "body": "Press I and slide the mouse to inset the top face: a frame inside a frame. Click to confirm.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 4,
+        "rel": true
+      },
+      "hint": "I, move the mouse toward the face center, click."
+    },
+    {
+      "id": "dig",
+      "title": "Dig in",
+      "body": "E, then push the mouse down into the tower and click. Extrude works inward too. Instant pool.",
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 4,
+        "rel": true
+      },
+      "praise": "Rooftop pool, very fancy."
+    },
+    {
+      "id": "loopcut",
+      "title": "Loop cut",
+      "body": "Hover a side of the tower, press Ctrl+R. A yellow ring previews the cut. Click once, then right-click to drop it dead center.",
+      "setup": [
+        "edit_mode"
+      ],
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 4,
+        "rel": true
+      },
+      "hint": "Ctrl+R with the mouse over a side face edge. Click, then right-click.",
+      "hint_after": 20
+    },
+    {
+      "id": "bevel",
+      "title": "Bevel",
+      "body": "Press 2 for edges, click one sharp edge, press Ctrl+B and drag. Sharp corners become smooth chamfers. Scroll the wheel while dragging for more segments.",
+      "setup": [
+        "edit_mode",
+        {
+          "do": "select_mode",
+          "value": [
+            false,
+            true,
+            false
+          ]
+        },
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "ge",
+        "value": 1,
+        "rel": true
+      }
+    },
+    {
+      "id": "merge",
+      "title": "Merge",
+      "body": "Press 1 for vertices. Click one corner, Shift+click a neighbor, press M and choose At Center. Two points become one.",
+      "setup": [
+        "edit_mode",
+        {
+          "do": "select_mode",
+          "value": [
+            true,
+            false,
+            false
+          ]
+        },
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "verts",
+        "op": "le",
+        "value": -1,
+        "rel": true
+      },
+      "hint": "M opens the Merge menu. At Center is first."
+    },
+    {
+      "id": "delete",
+      "title": "Delete",
+      "body": "Press 3 for faces, click any face, press X and choose Faces. A hole! Meshes don't have to be closed.",
+      "setup": [
+        "edit_mode",
+        {
+          "do": "select_mode",
+          "value": [
+            false,
+            false,
+            true
+          ]
+        },
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "mesh",
+        "object": "Cube",
+        "what": "faces",
+        "op": "le",
+        "value": -1,
+        "rel": true
+      },
+      "praise": "Ventilation."
+    },
+    {
+      "id": "tab-out",
+      "title": "Step back",
+      "body": "Tab back to Object Mode and orbit around your creation.",
+      "check": {
+        "type": "mode",
+        "value": "OBJECT"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 06: cleared",
+      "body": "Extrude, inset, loop cut, bevel, merge, delete. Honestly, that's most of modeling. Everything else is practice and taste.\n\nScroll on for Lesson 07: modifiers that work while you sleep.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

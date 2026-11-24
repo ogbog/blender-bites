@@ -1,0 +1,195 @@
+{
+  "fallback": {
+    "title": "Nothing to explain here (yet)",
+    "body": "Hover a button, a number field, or an object in the viewport, then press F1. Or right-click a button and pick EXPLAIN."
+  },
+  "area.VIEW_3D": {
+    "title": "3D Viewport",
+    "body": "Your window into the 3D world. Everything you model, light, and animate shows up here. You move the camera with the middle mouse button and act on things with the keyboard.",
+    "shortcut": "MMB orbit, Shift+MMB pan, wheel zoom",
+    "try": "Hover the cube and press F1 to meet it."
+  },
+  "viewport.object": {
+    "body": "An object: a thing living in your scene with its own position, rotation, and scale. Click it to select it, then G, R, or S to move, rotate, or scale it.",
+    "shortcut": "G / R / S",
+    "try": "Select it and press G, then X, to slide it along the red axis."
+  },
+  "viewport.object.MESH": {
+    "body": "A mesh object: a shape made of points (vertices), lines between them (edges), and the skin between those (faces). Every model you will ever build in Blender starts life as one of these.",
+    "shortcut": "Tab to edit its points",
+    "try": "Select it and press S to scale it. Ctrl+Z if you regret it."
+  },
+  "viewport.object.LIGHT": {
+    "body": "A light. Invisible in the final picture, but it decides what everything else looks like. Move it around and watch the shadows follow once you switch to rendered view.",
+    "shortcut": "Z then Rendered to see its effect"
+  },
+  "viewport.object.CAMERA": {
+    "body": "The camera. When you render (F12), Blender takes the picture from exactly where this thing is pointing.",
+    "shortcut": "Numpad 0 to look through it"
+  },
+  "Object.location": {
+    "title": "Location",
+    "body": "Where the object sits in the world, as three numbers: X (red, left and right), Y (green, forward and back), Z (blue, up and down). Measured in meters from the center of the world.",
+    "shortcut": "G to move, Alt+G to reset to zero",
+    "try": "Press G, X, 3, Enter and watch the X number become 3."
+  },
+  "Object.rotation_euler": {
+    "title": "Rotation",
+    "body": "How much the object is turned around each axis, in degrees. Rotation around Z spins it like a record; around X tips it forward like a nodding head.",
+    "shortcut": "R to rotate, Alt+R to reset",
+    "try": "R, Z, 90, Enter. A clean quarter turn."
+  },
+  "Object.scale": {
+    "title": "Scale",
+    "body": "How big the object is compared to its original size. 1 means normal, 2 means twice as big, 0.5 means half. Each axis can stretch on its own.",
+    "shortcut": "S to scale, Alt+S to reset",
+    "try": "S, Z, 2, Enter. Instant tower."
+  },
+  "Object.dimensions": {
+    "title": "Dimensions",
+    "body": "The object's actual size in meters along each axis, after scale is applied. Change scale and these numbers follow along.",
+    "try": "Type a new value here to resize precisely."
+  },
+  "Object.name": {
+    "title": "Name",
+    "body": "What this object is called. Blender doesn't care, but future you will. 'Cube.047' tells you nothing; 'LeftDoorHandle' tells you everything.",
+    "shortcut": "F2 to rename the active object"
+  },
+  "TRANSFORM_OT_translate": {
+    "title": "Move (Grab)",
+    "body": "Slides the selection through space. After pressing G, tap X, Y, or Z to lock to one axis, type a number for an exact distance, and click or press Enter to confirm. Right-click or Esc cancels.",
+    "shortcut": "G",
+    "try": "G, Z, 1, Enter lifts the selection exactly one meter."
+  },
+  "TRANSFORM_OT_rotate": {
+    "title": "Rotate",
+    "body": "Turns the selection around its pivot point. Same tricks as Grab: lock an axis with X, Y, or Z, type degrees for an exact turn.",
+    "shortcut": "R (press R twice for free trackball rotation)",
+    "try": "R, X, 90, Enter tips it on its side."
+  },
+  "TRANSFORM_OT_resize": {
+    "title": "Scale",
+    "body": "Grows or shrinks the selection. Move the mouse away from the object to grow, toward it to shrink. Lock an axis to stretch in one direction only.",
+    "shortcut": "S",
+    "try": "S, Shift+Z scales on X and Y but leaves height alone."
+  },
+  "OBJECT_OT_delete": {
+    "title": "Delete",
+    "body": "Removes the selected objects from the scene. Gone. Ctrl+Z brings them back if you panic.",
+    "shortcut": "X or Delete"
+  },
+  "OBJECT_OT_duplicate_move": {
+    "title": "Duplicate",
+    "body": "Makes a copy of the selection and immediately lets you move it. Right-click to drop the copy exactly where the original sits.",
+    "shortcut": "Shift+D"
+  },
+  "OBJECT_OT_select_all": {
+    "title": "Select All / None",
+    "body": "Selects everything in the scene, or clears the selection. Clearing first is a good habit before picking something new.",
+    "shortcut": "A selects all, Alt+A selects none"
+  },
+  "OBJECT_OT_mode_set": {
+    "title": "Mode",
+    "body": "Blender wears different hats. Object Mode moves whole things around. Edit Mode lets you push individual points, edges, and faces. Other modes sculpt, paint, or pose.",
+    "shortcut": "Tab flips between Object and Edit Mode",
+    "try": "Select the cube, press Tab, and look at its points."
+  },
+  "VIEW3D_OT_view_selected": {
+    "title": "Frame Selected",
+    "body": "Swoops the view to center on and fill the screen with whatever is selected. The fastest cure for 'where did my thing go?'",
+    "shortcut": "Numpad period"
+  },
+  "VIEW3D_OT_view_all": {
+    "title": "Frame All",
+    "body": "Zooms out until every object in the scene fits on screen.",
+    "shortcut": "Home"
+  },
+  "VIEW3D_OT_view_axis": {
+    "title": "Snap to a view",
+    "body": "Jumps to a straight-on view like front, side, or top. Great for lining things up precisely, like a technical drawing.",
+    "shortcut": "Numpad 1 front, 3 right, 7 top. Ctrl flips to the opposite side."
+  },
+  "ED_OT_undo": {
+    "title": "Undo",
+    "body": "Steps back in time one action. Press it again to go further back.",
+    "shortcut": "Ctrl+Z (Ctrl+Shift+Z to redo)"
+  },
+  "View3DShading.type": {
+    "title": "Viewport Shading",
+    "body": "How the viewport draws your scene. Wireframe shows only edges. Solid is the fast default. Material Preview shows colors and textures. Rendered shows real lighting, slower but true.",
+    "shortcut": "Z opens a pie menu with all four",
+    "try": "Press Z and pick Wireframe to see through everything."
+  },
+  "View3DShading.show_xray": {
+    "title": "X-Ray",
+    "body": "Makes everything see-through, so you can select things hiding behind other things.",
+    "shortcut": "Alt+Z"
+  },
+  "View3DOverlay.show_overlays": {
+    "title": "Overlays",
+    "body": "Toggles all the helper drawings: the grid floor, axis lines, outlines, and the little origin dots. Turn them off to see your scene clean.",
+    "shortcut": "Shift+Alt+Z"
+  },
+  "SpaceView3D.show_gizmo": {
+    "title": "Gizmos",
+    "body": "Toggles the clickable handles in the viewport, like the navigation ball in the corner and the move arrows on objects."
+  },
+  "ToolSettings.use_snap": {
+    "title": "Snapping",
+    "body": "When on, moving things makes them stick to the grid, to other objects' points, or to surfaces. Handy for precise placement.",
+    "shortcut": "Shift+Tab toggles it, or hold Ctrl while moving to snap temporarily"
+  },
+  "ToolSettings.use_proportional_edit": {
+    "title": "Proportional Editing",
+    "body": "Moving one point also drags its neighbors along, falling off softly with distance. Like pulling a tablecloth. Scroll the wheel while moving to change the reach.",
+    "shortcut": "O"
+  },
+  "ToolSettings.transform_pivot_point": {
+    "title": "Pivot Point",
+    "body": "The spot things rotate and scale around: each object's own center, the middle of the selection, the 3D cursor, or the active object.",
+    "shortcut": "Period key opens a pie menu"
+  },
+  "TransformOrientationSlot.type": {
+    "title": "Transform Orientation",
+    "body": "Which way X, Y, and Z point when you lock an axis. Global uses the world's directions. Local uses the object's own tilted directions.",
+    "shortcut": "Press X twice while moving to switch to local X"
+  },
+  "tool:builtin.select_box": {
+    "title": "Select Box",
+    "body": "Drag a rectangle to select everything inside it. Hold Shift to add, Ctrl to remove.",
+    "shortcut": "W cycles select tools, B for a quick box anytime"
+  },
+  "tool:builtin.cursor": {
+    "title": "3D Cursor",
+    "body": "That red and white ring is the 3D cursor: where new objects appear and an optional pivot point. This tool lets you click to place it.",
+    "shortcut": "Shift+Right-click places it anytime, Shift+C resets it"
+  },
+  "tool:builtin.move": {
+    "title": "Move Tool",
+    "body": "Shows arrows on the selection that you can drag with the mouse. Same result as pressing G, just with handles.",
+    "shortcut": "G does it without the tool"
+  },
+  "tool:builtin.rotate": {
+    "title": "Rotate Tool",
+    "body": "Shows colored rings you can drag to rotate. Same as pressing R.",
+    "shortcut": "R"
+  },
+  "tool:builtin.scale": {
+    "title": "Scale Tool",
+    "body": "Shows handles you can drag to scale along each axis. Same as pressing S.",
+    "shortcut": "S"
+  },
+  "tool:builtin.transform": {
+    "title": "Transform Tool",
+    "body": "Move, rotate, and scale handles all at once. Busy, but powerful."
+  },
+  "tool:builtin.annotate": {
+    "title": "Annotate",
+    "body": "Scribble notes and arrows right on the viewport. Perfect for marking up ideas or explaining things to collaborators.",
+    "shortcut": "Hold D and drag"
+  },
+  "tool:builtin.measure": {
+    "title": "Measure",
+    "body": "Drag between two points to measure the distance. Drag from the middle of a measurement to measure an angle."
+  }
+}

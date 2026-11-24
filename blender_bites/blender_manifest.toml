@@ -1,0 +1,16 @@
+schema_version = "1.0.0"
+
+id = "blender_bites"
+version = "0.3.0"
+name = "Blender Bites"
+tagline = "Learn Blender one bite at a time, starting from one viewport"
+maintainer = "Oscar Baechler <oscarbaechler@gmail.com>"
+type = "add-on"
+website = "https://github.com/ogbog/blender-bites"
+
+blender_version_min = "5.0.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["User Interface", "3D View"]
+
+copyright = ["2026 Oscar Baechler"]

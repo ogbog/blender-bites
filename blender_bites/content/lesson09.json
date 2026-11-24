@@ -1,0 +1,122 @@
+{
+  "id": "lesson09",
+  "title": "Lesson 09: Shader Nodes",
+  "next": "lesson10",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties",
+    "shader"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Under the hood",
+      "body": "Every material is secretly a little machine of nodes. Boxes do jobs, wires carry data from left to right, and the Material Output on the far right is the finish line.",
+      "setup": [
+        "object_mode",
+        "select_cube",
+        "ensure_material",
+        {
+          "do": "shading",
+          "value": "MATERIAL"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "navigate",
+      "title": "Find your way",
+      "body": "Hover the Shader Editor at the bottom. Scroll to zoom, middle-drag to pan, Home to fit everything on screen. Same moves as the viewport.",
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "noise",
+      "title": "Add a texture",
+      "body": "Hover the Shader Editor, press Shift+A, then Texture, then Noise Texture. Click to drop it.",
+      "check": {
+        "type": "node",
+        "object": "Cube",
+        "node_type": "TEX_NOISE"
+      },
+      "hint": "Shift+A must be pressed with the mouse over the Shader Editor, not the viewport."
+    },
+    {
+      "id": "wire",
+      "title": "Plug it in",
+      "body": "Drag from the Noise node's yellow Color dot to the Base Color dot on Principled BSDF. Your cube turns cloudy.",
+      "check": {
+        "type": "node",
+        "object": "Cube",
+        "node_type": "TEX_NOISE",
+        "linked_to": "Base Color"
+      },
+      "hint": "Yellow dots carry color. Drag dot to dot.",
+      "praise": "Clouds!"
+    },
+    {
+      "id": "scale",
+      "title": "Zoom the pattern",
+      "body": "On the Noise node, set Scale to 20. Finer grain.",
+      "check": {
+        "type": "object",
+        "path": "active_material.node_tree.nodes['Noise Texture'].inputs['Scale'].default_value",
+        "op": "ge",
+        "value": 15,
+        "object": "Cube"
+      }
+    },
+    {
+      "id": "ramp",
+      "title": "Splice in color",
+      "body": "Shift+A, Converter, Color Ramp. Drop it right ON the wire between Noise and Principled. Blender splices it in for you.",
+      "check": {
+        "type": "node",
+        "object": "Cube",
+        "node_type": "VALTORGB",
+        "linked_to": "Base Color"
+      },
+      "hint": "Drag the new node over the wire until the wire highlights, then click.",
+      "hint_after": 20
+    },
+    {
+      "id": "ramp-color",
+      "title": "Choose the palette",
+      "body": "Click the black stop on the Color Ramp, then click the color bar below it and pick a color. Do the white one too.",
+      "check": {
+        "type": "object",
+        "path": "active_material.node_tree.nodes['Color Ramp'].color_ramp.elements[0].color",
+        "op": "changed",
+        "object": "Cube"
+      },
+      "praise": "Custom marble."
+    },
+    {
+      "id": "bump",
+      "title": "Make it bumpy",
+      "body": "Shift+A, Vector, Bump. Wire Noise's Fac into Bump's Height, and Bump's Normal into Principled's Normal.",
+      "check": {
+        "type": "node",
+        "object": "Cube",
+        "node_type": "BUMP",
+        "linked_to": "Normal"
+      },
+      "hint": "Two wires: Noise Fac to Bump Height, Bump Normal to Principled Normal (purple dots).",
+      "hint_after": 25,
+      "praise": "You can feel it."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 09: cleared",
+      "body": "Adding nodes, wiring them, splicing, color ramps, and bump. That's the grammar of every procedural material.\n\nScroll on for Lesson 10: light.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

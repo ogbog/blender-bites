@@ -1,0 +1,131 @@
+{
+  "id": "lesson10",
+  "title": "Lesson 10: Light",
+  "next": "lesson11",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties",
+    "shader"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Light is everything",
+      "body": "Same object, different light, totally different mood. Painters have known this forever.",
+      "setup": [
+        "object_mode",
+        "select_cube",
+        "ensure_light",
+        "reset_view"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "rendered",
+      "title": "See real light",
+      "body": "Z, then Rendered.",
+      "check": {
+        "type": "prop",
+        "root": "space",
+        "path": "shading.type",
+        "op": "eq",
+        "value": "RENDERED"
+      }
+    },
+    {
+      "id": "area",
+      "title": "Add a softbox",
+      "body": "Shift+A, Light, Area. A flat, glowing panel, like a photographer's softbox.",
+      "check": {
+        "type": "added",
+        "prefix": "Area",
+        "object_type": "LIGHT"
+      },
+      "praise": "Lights, then..."
+    },
+    {
+      "id": "lift",
+      "title": "Hang it up",
+      "body": "G, Z, and lift the Area light to at least 3 meters up. It points down by default.",
+      "setup": [
+        {
+          "do": "select",
+          "prefix": "Area"
+        }
+      ],
+      "check": {
+        "type": "object",
+        "path": "location.z",
+        "op": "ge",
+        "value": 3,
+        "prefix": "Area",
+        "object_type": "LIGHT"
+      }
+    },
+    {
+      "id": "power",
+      "title": "Turn it up",
+      "body": "Properties, green lightbulb tab (Object Data). Set Power to 500 W.",
+      "check": {
+        "type": "object",
+        "path": "data.energy",
+        "op": "ge",
+        "value": 500,
+        "prefix": "Area",
+        "object_type": "LIGHT"
+      },
+      "hint": "The green lightbulb tab only shows while the light is selected."
+    },
+    {
+      "id": "warm",
+      "title": "Warm it up",
+      "body": "Click the light's Color and pick a warm orange.",
+      "check": {
+        "type": "object",
+        "path": "data.color",
+        "op": "changed",
+        "prefix": "Area",
+        "object_type": "LIGHT"
+      },
+      "praise": "Golden hour."
+    },
+    {
+      "id": "soft",
+      "title": "Soften the shadows",
+      "body": "Set the Area light's Size to 4. Bigger light, softer shadows. That's the whole secret of portrait lighting.",
+      "check": {
+        "type": "object",
+        "path": "data.size",
+        "op": "ge",
+        "value": 3.5,
+        "prefix": "Area",
+        "object_type": "LIGHT"
+      }
+    },
+    {
+      "id": "world",
+      "title": "Dim the sky",
+      "body": "Click the red globe tab (World). Set Strength to 0.2. The ambient fill drops and your Area light takes over.",
+      "check": {
+        "type": "prop",
+        "root": "scene",
+        "path": "world.node_tree.nodes['Background'].inputs['Strength'].default_value",
+        "op": "le",
+        "value": 0.3
+      },
+      "hint": "Red globe tab, Surface, Strength."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 10: cleared",
+      "body": "Rendered view, Area lights, power, color, size, and the World. You're lighting like a photographer.\n\nScroll on for Lesson 11: the camera.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

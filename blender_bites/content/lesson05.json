@@ -1,0 +1,250 @@
+{
+  "id": "lesson05",
+  "title": "Lesson 05: Edit Mode",
+  "next": "lesson06",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Inside the mesh",
+      "body": "Object Mode moves whole things. Edit Mode moves the points, edges, and faces they're made of. Same cube, new superpower.",
+      "setup": [
+        "fresh_cube",
+        "reset_view",
+        "xray_off",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        }
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "tab",
+      "title": "Press Tab",
+      "body": "Hover the viewport and press Tab. The cube shows its skeleton: dots at the corners, lines between them.",
+      "setup": [
+        "object_mode",
+        "select_cube"
+      ],
+      "check": {
+        "type": "mode",
+        "value": "EDIT_MESH"
+      },
+      "praise": "You're in."
+    },
+    {
+      "id": "vert",
+      "title": "Pick a point",
+      "body": "Press 1 for vertex select, then click one corner dot.",
+      "setup": [
+        "edit_mode",
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "all",
+        "checks": [
+          {
+            "type": "prop",
+            "root": "tool_settings",
+            "path": "mesh_select_mode",
+            "op": "eq",
+            "value": [
+              true,
+              false,
+              false
+            ]
+          },
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_verts",
+            "op": "ge",
+            "value": 1
+          }
+        ]
+      },
+      "hint": "1 on the main keyboard row, not the numpad."
+    },
+    {
+      "id": "dent",
+      "title": "Dent it",
+      "body": "With that corner selected, press G, move the mouse, and click. You just reshaped the cube.",
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_translate"
+      },
+      "praise": "Sculptor energy."
+    },
+    {
+      "id": "edge",
+      "title": "Edges",
+      "body": "Press 2 for edge select and click one edge.",
+      "setup": [
+        "edit_mode",
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "all",
+        "checks": [
+          {
+            "type": "prop",
+            "root": "tool_settings",
+            "path": "mesh_select_mode",
+            "op": "eq",
+            "value": [
+              false,
+              true,
+              false
+            ]
+          },
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_edges",
+            "op": "ge",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "face",
+      "title": "Faces",
+      "body": "Press 3 for face select and click the top face. It fills with orange.",
+      "setup": [
+        "edit_mode",
+        "mesh_deselect"
+      ],
+      "check": {
+        "type": "all",
+        "checks": [
+          {
+            "type": "prop",
+            "root": "tool_settings",
+            "path": "mesh_select_mode",
+            "op": "eq",
+            "value": [
+              false,
+              false,
+              true
+            ]
+          },
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_faces",
+            "op": "ge",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "lift",
+      "title": "Raise the roof",
+      "body": "G, then Z, then type 1 and press Enter. The top face rises exactly one meter.",
+      "check": {
+        "type": "operator",
+        "idname": "TRANSFORM_OT_translate",
+        "props": {
+          "constraint_axis": [
+            false,
+            false,
+            true
+          ]
+        }
+      },
+      "hint": "Make sure the top face is still selected (orange). G, Z, 1, Enter.",
+      "praise": "Taller house."
+    },
+    {
+      "id": "all",
+      "title": "Everything, then nothing",
+      "body": "Press A to select everything, then Alt+A to select nothing.",
+      "check": {
+        "type": "seq",
+        "checks": [
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_faces",
+            "op": "ge",
+            "value": 6
+          },
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_verts",
+            "op": "eq",
+            "value": 0
+          }
+        ]
+      },
+      "hint": "A, then Alt+A."
+    },
+    {
+      "id": "xray-box",
+      "title": "See through, select through",
+      "body": "Press 1 for vertices, Alt+Z for X-ray, then drag a box around the bottom half of the cube. X-ray lets the box grab the hidden back corners too.",
+      "setup": [
+        "edit_mode",
+        "mesh_deselect",
+        {
+          "do": "select_mode",
+          "value": [
+            true,
+            false,
+            false
+          ]
+        },
+        "xray_off"
+      ],
+      "check": {
+        "type": "all",
+        "checks": [
+          {
+            "type": "prop",
+            "root": "space",
+            "path": "shading.show_xray",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "type": "mesh",
+            "object": "Cube",
+            "what": "sel_verts",
+            "op": "ge",
+            "value": 4
+          }
+        ]
+      },
+      "hint": "Left-drag on empty space to draw the box. X-ray first, or the back corners hide.",
+      "praise": "Four corners, one swipe."
+    },
+    {
+      "id": "tab-out",
+      "title": "Back out",
+      "body": "Press Alt+Z to turn X-ray off, then Tab back to Object Mode. The cube keeps every change you made.",
+      "check": {
+        "type": "mode",
+        "value": "OBJECT"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 05: cleared",
+      "body": "Tab, the 1 2 3 select modes, grabbing points, A and Alt+A, X-ray selection. You can touch geometry now.\n\nScroll on for Lesson 06: the real modeling tools.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

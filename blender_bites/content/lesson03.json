@@ -1,0 +1,193 @@
+{
+  "id": "lesson03",
+  "title": "Lesson 03: Organizing",
+  "next": "lesson04",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner"
+  ],
+  "locked": [
+    {
+      "type": "TAB",
+      "say": "Tab (Edit Mode) unlocks in Lesson 05. Hold that thought."
+    }
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "The table of contents",
+      "body": "That panel on the right is the Outliner. It lists every object in your scene, even the ones you can't see. Think of it as the cast list.",
+      "setup": [
+        "object_mode",
+        "unhide_all",
+        "ensure_light",
+        "ensure_camera",
+        "ensure_suzanne",
+        {
+          "do": "clear_parent",
+          "prefix": "Suzanne"
+        },
+        "select_cube",
+        "reset_view"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "pick",
+      "title": "Point at a name",
+      "body": "Click Suzanne's name in the Outliner. She lights up in the viewport too. Two views, one selection.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "selected",
+        "prefix": "Suzanne"
+      },
+      "hint": "Find the row with a little triangle icon named Suzanne and click the name.",
+      "praise": "Same monkey, two windows."
+    },
+    {
+      "id": "rename",
+      "title": "Name things",
+      "body": "Double-click the Light's name in the Outliner, type Sun, press Enter. Good names are a gift to future you.",
+      "check": {
+        "type": "added",
+        "any": true,
+        "object_type": "LIGHT"
+      },
+      "hint": "Double-click the name text itself, not the icon. Or select it and press F2 over the viewport.",
+      "praise": "Future you says thanks."
+    },
+    {
+      "id": "eye",
+      "title": "Now you see it",
+      "body": "Click the eye icon on the Camera's row. It vanishes from the viewport but it's still in the scene, just napping.",
+      "setup": [
+        "unhide_all"
+      ],
+      "check": {
+        "type": "object",
+        "path": "hide_get()",
+        "op": "eq",
+        "value": true,
+        "any": true,
+        "object_type": "CAMERA"
+      },
+      "hint": "Right edge of the Camera row: the little eye."
+    },
+    {
+      "id": "alt-h",
+      "title": "Bring them all back",
+      "body": "Hover the viewport and press Alt+H. Everything hidden comes back at once. (H alone hides whatever is selected.)",
+      "setup": [
+        {
+          "do": "hide",
+          "object_type": "CAMERA"
+        }
+      ],
+      "check": {
+        "type": "not",
+        "check": {
+          "type": "object",
+          "path": "hide_get()",
+          "op": "eq",
+          "value": true,
+          "any": true,
+          "object_type": "CAMERA"
+        }
+      },
+      "praise": "Welcome back, camera."
+    },
+    {
+      "id": "parent",
+      "title": "Family tree",
+      "body": "Click Suzanne, then Shift+click the cube so the cube is selected last. Press Ctrl+P and choose Object. The last one you click becomes the parent.",
+      "setup": [
+        {
+          "do": "clear_parent",
+          "prefix": "Suzanne"
+        },
+        {
+          "do": "select",
+          "prefix": "Suzanne"
+        }
+      ],
+      "check": {
+        "type": "object",
+        "path": "parent.name",
+        "op": "eq",
+        "value": "Cube",
+        "prefix": "Suzanne"
+      },
+      "hint": "Order matters: Suzanne first, cube last (it gets the brighter outline). Then Ctrl+P, Object.",
+      "hint_after": 20,
+      "praise": "It's a family now."
+    },
+    {
+      "id": "ride",
+      "title": "Along for the ride",
+      "body": "Select just the cube and grab it with G. Suzanne rides along, because children follow their parents.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "all",
+        "checks": [
+          {
+            "type": "moved",
+            "object": "Cube",
+            "distance": 0.5
+          },
+          {
+            "type": "moved",
+            "prefix": "Suzanne",
+            "distance": 0.5
+          }
+        ]
+      },
+      "praise": "Piggyback ride."
+    },
+    {
+      "id": "tree",
+      "title": "Read the tree",
+      "body": "Look at the Outliner: Suzanne now lives indented under Cube. Click the little arrow beside Cube to fold and unfold the family.",
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "collection",
+      "title": "Boxes for things",
+      "body": "Select Suzanne, hover the viewport, press M, choose + New Collection, call it Props, click OK. Collections are folders for objects.",
+      "setup": [
+        {
+          "do": "select",
+          "prefix": "Suzanne"
+        }
+      ],
+      "check": {
+        "type": "object",
+        "path": "users_collection[0].name",
+        "op": "changed",
+        "prefix": "Suzanne"
+      },
+      "hint": "M opens Move to Collection. The + New Collection item is at the bottom.",
+      "hint_after": 20,
+      "praise": "Filed under Props."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 03: cleared",
+      "body": "You can find, rename, hide, parent, and file things. Big scenes won't scare you now.\n\nReward: the Properties editor just slid in under the Outliner. Every setting in Blender lives in there. Scroll on for Lesson 04.",
+      "unlock": [
+        "properties"
+      ],
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

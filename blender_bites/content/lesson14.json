@@ -1,0 +1,90 @@
+{
+  "id": "lesson14",
+  "title": "Lesson 14: Graduation",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties",
+    "timeline"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "The tabs up top",
+      "body": "See the tabs along the very top of the window (Layout, Modeling, Sculpting, Shading...)? Each is a workspace: the same scene, arranged for a different job. You're in one called Blender Bites right now.",
+      "setup": [
+        "stop_playback",
+        "bites_workspace"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "shading",
+      "title": "Visit Shading",
+      "body": "Click the Shading tab. Material preview, a node editor, an image browser, all laid out for painting with light.",
+      "check": {
+        "type": "prop",
+        "root": "window",
+        "path": "workspace.name",
+        "op": "eq",
+        "value": "Shading"
+      },
+      "hint": "Top bar of the window, the tab named Shading."
+    },
+    {
+      "id": "modeling",
+      "title": "Visit Modeling",
+      "body": "Now click the Modeling tab. A big viewport, tools on the left, ready for edit mode.",
+      "check": {
+        "type": "prop",
+        "root": "window",
+        "path": "workspace.name",
+        "op": "eq",
+        "value": "Modeling"
+      }
+    },
+    {
+      "id": "home",
+      "title": "Come home",
+      "body": "Click the Blender Bites tab to come back here.",
+      "check": {
+        "type": "prop",
+        "root": "window",
+        "path": "workspace.name",
+        "op": "eq",
+        "value": "Blender Bites"
+      },
+      "hint": "The Blender Bites tab is with the others along the top. Scroll the tab row if it's hidden."
+    },
+    {
+      "id": "save",
+      "title": "Save your work",
+      "body": "Press Ctrl+S. If this file has never been saved, Blender asks where. Call it my_first_scene.blend.",
+      "check": {
+        "type": "saved"
+      },
+      "hint": "Ctrl+S, pick a folder, type a name, click Save.",
+      "hint_after": 25,
+      "praise": "Safe and sound."
+    },
+    {
+      "id": "f1-forever",
+      "title": "F1, forever",
+      "body": "F1 keeps working after you graduate. Hover anything strange and ask. Right-click any button for EXPLAIN, too.",
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "You graduated",
+      "body": "Viewport, seeing, making, organizing, properties, edit mode, modeling, modifiers, materials, nodes, light, camera, render, animation, workspaces. That's Blender.\n\nScroll down and the whole program is yours. Go make something weird.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

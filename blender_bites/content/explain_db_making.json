@@ -1,0 +1,108 @@
+{
+  "View3DCursor.location": {
+    "title": "3D Cursor Location",
+    "body": "Where the 3D cursor sits: the red and white ring. New objects appear here, and it can act as a pivot for rotating and scaling.",
+    "shortcut": "Shift+Right-click to place it, Shift+C to reset it to the center",
+    "try": "Shift+Right-click the floor, then Shift+A, Mesh, Cube."
+  },
+  "MESH_OT_primitive_cube_add": {
+    "title": "Add Cube",
+    "body": "Adds a 2 meter cube at the 3D cursor. The most famous default object in 3D.",
+    "shortcut": "Shift+A, Mesh, Cube"
+  },
+  "MESH_OT_primitive_uv_sphere_add": {
+    "title": "Add UV Sphere",
+    "body": "A ball made of rings and segments, like lines of latitude and longitude on a globe. Great for planets, eyeballs, and heads.",
+    "shortcut": "Shift+A, Mesh, UV Sphere",
+    "try": "Add one, then open the panel in the bottom-left corner and raise Segments."
+  },
+  "MESH_OT_primitive_uv_sphere_add.segments": {
+    "title": "Segments",
+    "body": "How many slices run around the sphere, like orange wedges. More segments means a smoother outline and a heavier mesh."
+  },
+  "MESH_OT_primitive_uv_sphere_add.ring_count": {
+    "title": "Rings",
+    "body": "How many bands stack from pole to pole. Raise it together with Segments for an evenly smooth ball."
+  },
+  "MESH_OT_primitive_uv_sphere_add.radius": {
+    "title": "Radius",
+    "body": "Distance from the center to the surface, in meters. A radius of 1 makes a ball 2 meters across."
+  },
+  "MESH_OT_primitive_ico_sphere_add": {
+    "title": "Add Ico Sphere",
+    "body": "A ball built from triangles, like a geodesic dome. Even everywhere, with no pinched poles. Lovely for rocks and sculpting.",
+    "shortcut": "Shift+A, Mesh, Ico Sphere"
+  },
+  "MESH_OT_primitive_cylinder_add": {
+    "title": "Add Cylinder",
+    "body": "A tube with caps. Pillars, cans, wheels, pencils.",
+    "shortcut": "Shift+A, Mesh, Cylinder"
+  },
+  "MESH_OT_primitive_cone_add": {
+    "title": "Add Cone",
+    "body": "A cylinder whose top shrinks to a point. Party hats, roofs, carrots.",
+    "shortcut": "Shift+A, Mesh, Cone"
+  },
+  "MESH_OT_primitive_plane_add": {
+    "title": "Add Plane",
+    "body": "One flat square face. Floors, walls, pieces of paper, and the start of countless models.",
+    "shortcut": "Shift+A, Mesh, Plane"
+  },
+  "MESH_OT_primitive_torus_add": {
+    "title": "Add Torus",
+    "body": "A donut. The official mascot of every Blender beginner tutorial ever made.",
+    "shortcut": "Shift+A, Mesh, Torus"
+  },
+  "MESH_OT_primitive_monkey_add": {
+    "title": "Add Monkey",
+    "body": "Suzanne, Blender's monkey mascot. Her lumpy face is perfect for testing lights, materials, and modifiers.",
+    "shortcut": "Shift+A, Mesh, Monkey"
+  },
+  "OBJECT_OT_light_add": {
+    "title": "Add Light",
+    "body": "Adds a lamp. Point glows in all directions, Sun lights the whole world from one angle, Spot makes a cone, Area is a soft glowing panel.",
+    "shortcut": "Shift+A, Light"
+  },
+  "OBJECT_OT_camera_add": {
+    "title": "Add Camera",
+    "body": "Adds a camera. Renders are taken through the active camera.",
+    "shortcut": "Shift+A, Camera"
+  },
+  "OBJECT_OT_text_add": {
+    "title": "Add Text",
+    "body": "Adds 3D text. Press Tab to type new words into it, then Tab again to finish.",
+    "shortcut": "Shift+A, Text"
+  },
+  "OBJECT_OT_empty_add": {
+    "title": "Add Empty",
+    "body": "An invisible helper: a point with a position, rotation, and scale but no shape. Used as a handle, a target, or a parent for other objects.",
+    "shortcut": "Shift+A, Empty"
+  },
+  "SpaceView3D.show_region_toolbar": {
+    "title": "Toolbar",
+    "body": "Shows or hides the tall strip of tools on the left of the viewport.",
+    "shortcut": "T"
+  },
+  "SpaceView3D.show_region_ui": {
+    "title": "Sidebar",
+    "body": "Shows or hides the sidebar on the right: exact numbers for the selected object, tool settings, and view options, sorted into tabs.",
+    "shortcut": "N"
+  },
+  "SpaceView3D.show_region_hud": {
+    "title": "Adjust Last Operation",
+    "body": "The panel in the bottom-left corner that appears right after you do something. Change its settings and Blender redoes the action with your new values.",
+    "shortcut": "F9 opens it as a popup"
+  },
+  "View3DShading.light": {
+    "title": "Lighting",
+    "body": "How Solid mode lights your scene. Studio is a soft fake studio light, Flat has no shading at all, and MatCap paints every surface with a material ball image."
+  },
+  "View3DShading.color_type": {
+    "title": "Color",
+    "body": "Which color Solid mode paints objects with: one shared color, each object's material color, a random color per object (great for telling things apart), or textures."
+  },
+  "View3DOverlay.show_floor": {
+    "title": "Floor Grid",
+    "body": "The grid floor you see in perspective views. Purely a guide: it never renders."
+  }
+}

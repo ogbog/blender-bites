@@ -1,0 +1,237 @@
+{
+  "SpaceProperties.context": {
+    "title": "Properties tabs",
+    "body": "Each icon down the left edge of the Properties editor opens a different drawer of settings: render, output, scene, world, then everything about the selected object (object, modifiers, particles, physics, constraints, data, materials).",
+    "try": "Hover each tab and read its tooltip. The tabs change depending on what's selected."
+  },
+  "Object.parent": {
+    "title": "Parent",
+    "body": "The object this one follows. Move, rotate, or scale the parent and the child comes along, keeping its offset. Like a moon around a planet.",
+    "shortcut": "Ctrl+P to parent (last selected becomes parent), Alt+P to clear"
+  },
+  "OBJECT_OT_parent_set": {
+    "title": "Set Parent",
+    "body": "Makes the active object (the last one you clicked) the parent of the other selected objects.",
+    "shortcut": "Ctrl+P"
+  },
+  "OBJECT_OT_move_to_collection": {
+    "title": "Move to Collection",
+    "body": "Files the selected objects into a collection, a folder for objects. Collections can be hidden, excluded from renders, or linked into other files all at once.",
+    "shortcut": "M"
+  },
+  "OBJECT_OT_hide_view_set": {
+    "title": "Hide",
+    "body": "Hides the selected objects in the viewport. They still exist and still render unless you also turn off rendering.",
+    "shortcut": "H hides selected, Shift+H hides everything else, Alt+H reveals all"
+  },
+  "OBJECT_OT_hide_view_clear": {
+    "title": "Reveal Hidden",
+    "body": "Brings back every object you hid in the viewport.",
+    "shortcut": "Alt+H"
+  },
+  "OBJECT_OT_shade_smooth": {
+    "title": "Shade Smooth",
+    "body": "Blends the lighting across faces so a low-poly shape looks rounded. It doesn't add geometry; it only changes how light reads the surface.",
+    "try": "Pair it with a Subdivision Surface modifier for silky results."
+  },
+  "OBJECT_OT_modifier_add": {
+    "title": "Add Modifier",
+    "body": "Adds a modifier: a non-destructive recipe that changes the shape (or more) every time Blender redraws, without touching the real mesh until you apply it."
+  },
+  "OBJECT_OT_modifier_apply": {
+    "title": "Apply Modifier",
+    "body": "Bakes the modifier's result into real geometry and removes the recipe. Handy, but final.",
+    "shortcut": "Ctrl+A while hovering the modifier panel"
+  },
+  "SubsurfModifier.levels": {
+    "title": "Subdivision Levels (Viewport)",
+    "body": "How many times each face is split and smoothed in the viewport. Every level roughly quadruples the face count, so 2 or 3 is plenty while you work.",
+    "shortcut": "Ctrl+1, Ctrl+2, Ctrl+3 in Object Mode adds Subdivision at that level"
+  },
+  "SubsurfModifier.render_levels": {
+    "title": "Subdivision Levels (Render)",
+    "body": "The subdivision level used in final renders. It can be higher than the viewport level, since renders happen once."
+  },
+  "Modifier.show_viewport": {
+    "title": "Show in Viewport",
+    "body": "Turns the modifier's effect on or off in the viewport without deleting it. Great for comparing before and after, or keeping a heavy scene snappy."
+  },
+  "Modifier.show_render": {
+    "title": "Show in Render",
+    "body": "Turns the modifier on or off for final renders."
+  },
+  "ArrayModifier.count": {
+    "title": "Array Count",
+    "body": "How many copies the Array makes, including the original."
+  },
+  "ArrayModifier.relative_offset_displace": {
+    "title": "Relative Offset",
+    "body": "How far apart the copies are, measured in multiples of the object's own size. 1 means touching, 1.5 leaves a half-size gap. Each axis is separate, so X and Y make rows and columns."
+  },
+  "BevelModifier.width": {
+    "title": "Bevel Amount",
+    "body": "How wide the bevel cuts into each sharp edge."
+  },
+  "BevelModifier.segments": {
+    "title": "Bevel Segments",
+    "body": "How many steps the bevel uses. 1 is a flat chamfer, 3 or more starts to look round."
+  },
+  "WireframeModifier.thickness": {
+    "title": "Wireframe Thickness",
+    "body": "How thick each beam is when the Wireframe modifier turns edges into struts."
+  },
+  "ToolSettings.mesh_select_mode": {
+    "title": "Select Mode",
+    "body": "What a click grabs in Edit Mode: vertices (points), edges (lines), or faces (surfaces). Shift-click to combine modes.",
+    "shortcut": "1 vertex, 2 edge, 3 face"
+  },
+  "tool:builtin.extrude_region": {
+    "title": "Extrude Region",
+    "body": "Pulls the selection outward, building new walls behind it. The single most used modeling tool.",
+    "shortcut": "E"
+  },
+  "tool:builtin.inset_faces": {
+    "title": "Inset Faces",
+    "body": "Shrinks a face inward and fills the border with a ring of new faces. A frame within a frame, perfect before an extrude.",
+    "shortcut": "I"
+  },
+  "tool:builtin.bevel": {
+    "title": "Bevel",
+    "body": "Rounds off sharp edges or corners. Scroll the wheel while dragging for more segments.",
+    "shortcut": "Ctrl+B for edges, Ctrl+Shift+B for vertices"
+  },
+  "tool:builtin.loop_cut": {
+    "title": "Loop Cut",
+    "body": "Slices a new ring of edges all the way around a shape, giving you more geometry exactly where you need it.",
+    "shortcut": "Ctrl+R"
+  },
+  "tool:builtin.knife": {
+    "title": "Knife",
+    "body": "Draw new cuts across faces by clicking points. Enter to confirm, Esc to cancel.",
+    "shortcut": "K"
+  },
+  "MESH_OT_merge": {
+    "title": "Merge",
+    "body": "Melts selected vertices into one. At Center puts the result in the middle; By Distance cleans up doubles that sit on top of each other.",
+    "shortcut": "M in Edit Mode"
+  },
+  "MESH_OT_delete": {
+    "title": "Delete",
+    "body": "Removes vertices, edges, or faces. Deleting faces leaves the edges around the hole; Dissolve removes geometry while keeping the surface closed.",
+    "shortcut": "X or Delete in Edit Mode"
+  },
+  "MATERIAL_OT_new": {
+    "title": "New Material",
+    "body": "Creates a fresh material and puts it in the selected slot. A material decides color, shine, metalness, transparency and more."
+  },
+  "OBJECT_OT_material_slot_add": {
+    "title": "Add Material Slot",
+    "body": "Adds an empty slot so one object can wear more than one material. Fill it with New, then Assign it to faces in Edit Mode."
+  },
+  "OBJECT_OT_material_slot_assign": {
+    "title": "Assign Material",
+    "body": "Paints the selected faces (in Edit Mode) with the material in the highlighted slot."
+  },
+  "Material.name": {
+    "title": "Material Name",
+    "body": "What this material is called. Materials are shared between objects, so a good name (BrushedSteel, not Material.014) saves a lot of hunting."
+  },
+  "Light.energy": {
+    "title": "Light Power",
+    "body": "How bright the light is, in watts. Area and point lights often need hundreds or thousands of watts; the Sun uses a strength in a different unit, so small numbers like 3 to 5 are typical."
+  },
+  "Light.color": {
+    "title": "Light Color",
+    "body": "The tint of the light. Warm oranges feel like late afternoon, cool blues like moonlight or shade."
+  },
+  "AreaLight.size": {
+    "title": "Area Light Size",
+    "body": "How big the glowing panel is. Bigger lights make softer shadows with blurrier edges, exactly like a photographer's softbox."
+  },
+  "AreaLight.shape": {
+    "title": "Area Light Shape",
+    "body": "Square, rectangle, disk, or ellipse. Changes the shape of the glow and of reflections in shiny surfaces."
+  },
+  "Camera.lens": {
+    "title": "Focal Length",
+    "body": "Like swapping lenses on a real camera. Low numbers (18 to 24 mm) are wide and dramatic, 50 mm feels natural, 85 mm and up flatten faces flatteringly."
+  },
+  "CameraDOFSettings.use_dof": {
+    "title": "Depth of Field",
+    "body": "Blurs everything that isn't at the focus distance, like a real lens. Pick a Focus Object so the camera always stays sharp on it."
+  },
+  "CameraDOFSettings.aperture_fstop": {
+    "title": "F-Stop",
+    "body": "How strong the blur is. Low numbers (1.4, 2) mean dreamy blur; high numbers (8, 16) keep everything sharp."
+  },
+  "SpaceView3D.lock_camera": {
+    "title": "Lock Camera to View",
+    "body": "While on, navigating in camera view moves the camera itself. Turn it on to frame a shot by hand, then off so you don't bump it."
+  },
+  "VIEW3D_OT_view_camera": {
+    "title": "Camera View",
+    "body": "Look through the scene's active camera: exactly what a render will show.",
+    "shortcut": "Numpad 0"
+  },
+  "VIEW3D_OT_camera_to_view": {
+    "title": "Align Camera to View",
+    "body": "Moves the active camera to exactly where you're looking from right now.",
+    "shortcut": "Ctrl+Alt+Numpad 0"
+  },
+  "RenderSettings.engine": {
+    "title": "Render Engine",
+    "body": "Which renderer draws the final image. EEVEE is fast and great for most work, Cycles traces real light paths for accuracy, Workbench is a quick flat preview."
+  },
+  "RenderSettings.resolution_percentage": {
+    "title": "Resolution %",
+    "body": "Renders at a percentage of the full size. 50% renders about four times faster, perfect while testing."
+  },
+  "RENDER_OT_render": {
+    "title": "Render Image",
+    "body": "Renders a still picture from the active camera and opens it in a render window. Save it from that window's Image menu.",
+    "shortcut": "F12"
+  },
+  "Scene.frame_current": {
+    "title": "Current Frame",
+    "body": "Where the playhead sits in time. Change it to jump around your animation."
+  },
+  "Scene.frame_end": {
+    "title": "End Frame",
+    "body": "The last frame of the animation. Playback loops back to Start when it reaches here."
+  },
+  "ANIM_OT_keyframe_insert_menu": {
+    "title": "Insert Keyframe",
+    "body": "Records the current value (location, rotation, scale and more) at the current frame. Blender animates smoothly between keyframes.",
+    "shortcut": "I"
+  },
+  "SCREEN_OT_animation_play": {
+    "title": "Play Animation",
+    "body": "Plays the animation in the viewport. Press again to pause; Esc stops and returns to where you started.",
+    "shortcut": "Space"
+  },
+  "WM_OT_save_mainfile": {
+    "title": "Save",
+    "body": "Saves the .blend file. Blender also keeps autosaves and a .blend1 backup of the previous save, just in case.",
+    "shortcut": "Ctrl+S"
+  },
+  "area.OUTLINER": {
+    "title": "Outliner",
+    "body": "A list of everything in the scene, organized in collections and parent-child trees. Click names to select, double-click to rename, use the eye to hide.",
+    "try": "Click the little arrow beside an object to see what's inside it: mesh data, materials, modifiers."
+  },
+  "area.PROPERTIES": {
+    "title": "Properties Editor",
+    "body": "Every setting of the scene and the selected object, sorted into tabs down the left edge.",
+    "try": "Select different kinds of objects (a light, a camera, a mesh) and watch the tabs change."
+  },
+  "area.NODE_EDITOR": {
+    "title": "Node Editor",
+    "body": "Materials, geometry and compositing drawn as boxes and wires. Data flows left to right into the output on the far right.",
+    "shortcut": "Shift+A adds nodes, Ctrl+Right-drag cuts wires, Home frames everything"
+  },
+  "area.DOPESHEET_EDITOR": {
+    "title": "Timeline",
+    "body": "Time, laid out left to right. Diamonds are keyframes, the blue line is the current frame, and the controls play, stop and jump.",
+    "shortcut": "Space plays, Left/Right arrows step frames"
+  }
+}

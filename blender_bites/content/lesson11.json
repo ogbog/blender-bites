@@ -1,0 +1,130 @@
+{
+  "id": "lesson11",
+  "title": "Lesson 11: Camera",
+  "next": "lesson12",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Choose the shot",
+      "body": "The camera decides what the final picture shows. Framing is half of every image.",
+      "setup": [
+        "object_mode",
+        "ensure_camera",
+        "perspective",
+        {
+          "do": "shading",
+          "value": "SOLID"
+        },
+        "reset_view"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "look",
+      "title": "Look through it",
+      "body": "Hover the viewport and press 0 on the number pad. You're looking through the camera now.",
+      "check": {
+        "type": "prop",
+        "root": "rv3d",
+        "path": "view_perspective",
+        "op": "eq",
+        "value": "CAMERA"
+      },
+      "hint": "No numpad? View menu, Cameras, Active Camera."
+    },
+    {
+      "id": "aim",
+      "title": "Camera to view",
+      "body": "Middle-drag to orbit out of the camera, find an angle you love, then press Ctrl+Alt+Numpad 0. The camera jumps to exactly what you see.",
+      "setup": [
+        "perspective"
+      ],
+      "check": {
+        "type": "transformed",
+        "any": true,
+        "object_type": "CAMERA"
+      },
+      "hint": "No numpad? View menu, Align View, Align Active Camera to View.",
+      "praise": "Shot composed."
+    },
+    {
+      "id": "lens",
+      "title": "Change the lens",
+      "body": "Click the camera in the Outliner, open the green camera tab (Object Data), set Focal Length to 85. Long lenses flatten and flatter.",
+      "check": {
+        "type": "object",
+        "path": "data.lens",
+        "op": "ge",
+        "value": 80,
+        "any": true,
+        "object_type": "CAMERA"
+      }
+    },
+    {
+      "id": "lock",
+      "title": "Drive the camera",
+      "body": "Press N, open the View tab, and tick Lock Camera to View. Now orbiting in camera view moves the camera itself.",
+      "check": {
+        "type": "prop",
+        "root": "space",
+        "path": "lock_camera",
+        "op": "eq",
+        "value": true
+      },
+      "hint": "Sidebar (N), View tab, look for Lock Camera to View."
+    },
+    {
+      "id": "drive",
+      "title": "Frame it, then unlock",
+      "body": "In camera view (numpad 0), orbit and pan until the cube sits nicely in the frame. Then untick Lock Camera to View.",
+      "check": {
+        "type": "seq",
+        "checks": [
+          {
+            "type": "transformed",
+            "any": true,
+            "object_type": "CAMERA"
+          },
+          {
+            "type": "prop",
+            "root": "space",
+            "path": "lock_camera",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "hint_after": 25
+    },
+    {
+      "id": "dof",
+      "title": "Blur the background",
+      "body": "Back in the camera's Object Data tab, tick Depth of Field, set Focus on Object to the Cube, and F-Stop to 1.4.",
+      "check": {
+        "type": "object",
+        "path": "data.dof.use_dof",
+        "op": "eq",
+        "value": true,
+        "any": true,
+        "object_type": "CAMERA"
+      },
+      "praise": "Cinematic."
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 11: cleared",
+      "body": "Camera view, camera to view, focal length, Lock Camera to View, and depth of field.\n\nScroll on for Lesson 12: take the picture.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}

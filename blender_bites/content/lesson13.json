@@ -1,0 +1,138 @@
+{
+  "id": "lesson13",
+  "title": "Lesson 13: Animation",
+  "next": "lesson14",
+  "unlocked": [
+    "header",
+    "toolbar",
+    "outliner",
+    "properties",
+    "timeline"
+  ],
+  "bites": [
+    {
+      "id": "welcome",
+      "title": "Things that move",
+      "body": "The strip at the bottom is the Timeline. Animation is just keyframes: you say where something is at certain frames, and Blender fills in between.",
+      "setup": [
+        "stop_playback",
+        {
+          "do": "frame",
+          "value": 1
+        },
+        "fresh_cube",
+        "perspective",
+        "reset_view"
+      ],
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "key1",
+      "title": "First keyframe",
+      "body": "Hover the viewport and press I, then pick Location. A diamond appears on frame 1 in the Timeline.",
+      "setup": [
+        "select_cube"
+      ],
+      "check": {
+        "type": "keyframes",
+        "object": "Cube",
+        "path_prefix": "location",
+        "value": 1
+      },
+      "hint": "I is for Insert keyframe. The cube must be selected."
+    },
+    {
+      "id": "jump",
+      "title": "Jump ahead",
+      "body": "Click frame 40 in the Timeline (or type 40 in the current frame box at the right).",
+      "check": {
+        "type": "prop",
+        "root": "scene",
+        "path": "frame_current",
+        "op": "ge",
+        "value": 30
+      }
+    },
+    {
+      "id": "key2",
+      "title": "Second keyframe",
+      "body": "G, X, move the cube, click. Then I, Location again.",
+      "check": {
+        "type": "keyframes",
+        "object": "Cube",
+        "path_prefix": "location",
+        "value": 2
+      },
+      "praise": "Two diamonds. That's an animation."
+    },
+    {
+      "id": "play",
+      "title": "Roll film",
+      "body": "Hover the viewport and press Space to play. Press Space again to stop.",
+      "check": {
+        "type": "seq",
+        "checks": [
+          {
+            "type": "prop",
+            "root": "screen",
+            "path": "is_animation_playing",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "type": "prop",
+            "root": "screen",
+            "path": "is_animation_playing",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "hint": "Space toggles playback. Esc stops and jumps back."
+    },
+    {
+      "id": "scrub",
+      "title": "Scrub",
+      "body": "Drag the blue playhead back and forth along the Timeline. That's scrubbing: you control time by hand.",
+      "setup": [
+        "stop_playback"
+      ],
+      "check": {
+        "type": "prop",
+        "root": "scene",
+        "path": "frame_current",
+        "op": "changed"
+      }
+    },
+    {
+      "id": "spin",
+      "title": "Add a spin",
+      "body": "Go to frame 80. Press R, Z, 180, Enter, then I and pick Rotation.",
+      "check": {
+        "type": "keyframes",
+        "object": "Cube",
+        "path_prefix": "rotation",
+        "value": 1
+      },
+      "hint": "Frame 80 first, then rotate, then I, Rotation."
+    },
+    {
+      "id": "watch",
+      "title": "Watch your film",
+      "body": "Press Home over the Timeline to see the whole range, set End to 80, and press Space. Slide, spin, done.",
+      "check": {
+        "type": "read"
+      }
+    },
+    {
+      "id": "cleared",
+      "title": "Lesson 13: cleared",
+      "body": "Keyframes, the Timeline, playback, scrubbing, and animating rotation. Things move when you say so.\n\nScroll on for the last lesson.",
+      "check": {
+        "type": "read"
+      }
+    }
+  ]
+}
